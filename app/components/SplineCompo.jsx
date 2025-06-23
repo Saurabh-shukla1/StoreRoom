@@ -1,18 +1,28 @@
-import { useEffect } from 'react';
+'use client';
+
+import Script from 'next/script';
+import { useState } from 'react';
 
 export default function SplineViewer() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = 'https://unpkg.com/@splinetool/viewer@1.10.8/build/spline-viewer.js';
-    document.body.appendChild(script);
-  }, []);
+  const [loaded, setLoaded] = useState(false);
 
   return (
-    <spline-viewer
-      class="robot-3d"
-      url="https://prod.spline.design/K49wMcVSF11IbBDD/scene.splinecode"
-      style={{ width: '100%', height: '500px' }}
-    ></spline-viewer>
+    <>
+      {/* Load the spline viewer script using next/script */}
+      <Script
+        type="module"
+        src="https://unpkg.com/@splinetool/viewer@1.10.8/build/spline-viewer.js"
+        onLoad={() => setLoaded(true)}
+        strategy="afterInteractive"
+      />
+
+      {/* Wait for the script to load before rendering the viewer */}
+      {loaded && (
+        <spline-viewer
+          url="https://prod.spline.design/K49wMcVSF11IbBDD/scene.splinecode"
+          style={{ width: '100%', height: '500px', display: 'block' }}
+        />
+      )}
+    </>
   );
 }

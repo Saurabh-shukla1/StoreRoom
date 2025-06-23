@@ -14,13 +14,18 @@ const LandingPageContainer = styled.div`
 
 
 const Landing = () => {
+
   return (
     <div>
     <LandingPageContainer>
         
         <div className='overflow-hidden'>
             <header className='flex flex-row '>
-            <h1 className='text-amber-100 text-2xl m-5 ml-15 '>StoreROOM</h1>
+            <div className='m-5 flex flex-row mr-10 '>
+                <img src="logo.svg" alt="logo" className='ml-15 mr-0 h-8' />
+                <h1 className='text-amber-100 text-2xl m'>StoreROOM</h1>
+            </div>
+            
             <nav className='flex justify-center items-center w-full py-4'>
                 <div className='flex space-x-4'>
                 <a href="#" className='text-amber-100 px-3 py-2 hover:text-blue-600'>Home</a>
@@ -29,11 +34,11 @@ const Landing = () => {
             </div>
             </nav>
             <div className='flex items-center justify-center'>
-            <button className='bg-gray-600 flex items-center text-white justify-center mt-2 mr-5 pt-2 pb-2 pl-4 pr-4 rounded hover:bg-gray-400 transition duration-300 cursor-pointer'>
+            <button className='bg-gray-600 flex items-center text-white justify-center mt-2 mr-5 pt-2 pb-2 pl-4 pr-4 rounded hover:bg-gray-400 transition duration-300 cursor-pointer' onClick={() => window.location.href='/sign-up'}>
                 Signup
             </button>
-            
-            <button className='bg-gray-600 text-white justify-center  mt-2 mr-5 pt-2 pb-2 pl-4 pr-4 rounded hover:bg-gray-400 transition duration-300 cursor-pointer'>
+
+            <button className='bg-gray-600 text-white justify-center  mt-2 mr-5 pt-2 pb-2 pl-4 pr-4 rounded hover:bg-gray-400 transition duration-300 cursor-pointer' onClick={() => window.location.href='/sign-in'}>
                 Login
             </button>
             </div>
@@ -44,9 +49,9 @@ const Landing = () => {
                 <h1 className='text-4xl text-white font-bold mb-4'>Welcome to StoreROOM</h1>
             <p className='text-lg text-white mb-8'>Your one-stop solution for all your storage needs.</p>
              <div className='flex  flex-row items-left justify-left space-x-4'>
-            <button className='bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 transition duration-300'>
+            <a className='bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 transition duration-300 inline-block text-center' href='/sign-up'>
                 Get Started →
-            </button>
+            </a>
             </div>
             </div>
 
