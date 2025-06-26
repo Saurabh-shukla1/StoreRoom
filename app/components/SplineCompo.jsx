@@ -3,6 +3,11 @@
 import Script from 'next/script';
 import { useState } from 'react';
 
+/**
+ * Renders a 3D Spline scene viewer, loading the required external script asynchronously.
+ * 
+ * Displays the Spline viewer only after the external script has finished loading to ensure proper initialization of the custom element.
+ */
 export default function SplineViewer() {
   const [loaded, setLoaded] = useState(false);
 
